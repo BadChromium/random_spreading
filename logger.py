@@ -15,10 +15,19 @@ logging.raiseExceptions = True
 
 class Logger:
     def __init__(self, name='Logger', loglevel='WARNING', save=True, save_level=logging.WARNING, log_path=None, update_frequency='D', save_interval=1):
+        '''
+        Initialize the self-defined class Logger
+        name: The logger's name
+        loglevel: The log level which will be output through terminal
+        save: Save to files or not
+        save_level: The log level of saved logs
+        update_frequency: The frequency of log update (For log type 3, see below)
+        save_interval: The interval of savings
+        '''
         self.log_path = log_path
         self.name = name
-        self.loglevel = loglevel
-        self.log_level = None
+        self.loglevel = loglevel # Strings for input
+        self.log_level = None # Choose log level based on the string above
         self.save = save
         self.save_level = save_level
         self.logging = logging
@@ -40,6 +49,10 @@ class Logger:
         return fileHandler
     
     def init_rotatingfileHdl(self, formatter, log_file_name='log.log'):
+        '''
+        formatter: For formatting the logs
+        log_file_name: The name of saved log files
+        '''
         fh = self.logging.handlers.RotatingFileHandler(log_file_name, maxBytes=1024*1024*10, backupCount=5, mode='a')
         fh.setLevel(self.save_level)
         fh.setFormatter(formatter)
@@ -52,6 +65,10 @@ class Logger:
         return fh
     
     def init_logger(self, fh_type='1'):
+        '''
+        :param: fh_type: The file handler's type. 1 for common, 2 for rotating file handler, 3 for time rotating
+        :return: The self-defined logger
+        '''
         if self.loglevel == "DEBUG":
             self.log_level = self.logging.DEBUG
         elif self.loglevel == "INFO":
@@ -63,6 +80,7 @@ class Logger:
         else:
             self.log_level = self.logging.CRITICAL
 
+        # Create a logger
         logger = self.logging.getLogger(self.name)
         logger.setLevel(self.log_level)
         formatter = self.logging.Formatter("%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -83,7 +101,8 @@ class Logger:
             elif fh_type == '3':
                 fh = self.init_timedRotatingfileHdl(formatter, log_file)
                 logger.addHandler(fh)
-            return logger
+        
+        return logger
         
 if __name__ == '__main__':
     try:

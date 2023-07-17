@@ -42,3 +42,11 @@
 2023-07-17 16:20:38,268 INFO GGTlogger The most possible child is s
 2023-07-17 16:20:38,268 INFO GGTlogger The parent canditates are ['d', 'a']
 2023-07-17 16:20:38,377 DEBUG GGTlogger The current 1st moments are {'a': 0.6559556536706945, 'd': 0.6559556536706945}
+2023-07-17 16:38:04,492 INFO GGTlogger The most possible child is a
+2023-07-17 16:38:04,493 INFO GGTlogger The parent canditates are ['s']
+2023-07-17 16:38:04,521 INFO GGTlogger The most possible child is d
+2023-07-17 16:38:04,521 INFO GGTlogger The parent canditates are ['s']
+2023-07-17 16:38:04,549 INFO GGTlogger The most possible child is b
+2023-07-17 16:38:04,549 INFO GGTlogger The parent canditates are ['a']
+2023-07-17 16:38:04,577 INFO GGTlogger The most possible child is c
+2023-07-17 16:38:04,577 INFO GGTlogger The parent canditates are ['b', 'd']

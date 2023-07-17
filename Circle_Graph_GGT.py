@@ -17,7 +17,7 @@ ggtlogger = Logger(
     save=True, 
     save_level=logging.INFO, 
     log_path='./logs'
-    ).init_logger('1')
+    ).init_logger('2')
 # %%
 G = nx.Graph()
 G.add_nodes_from(['s', 'a', 'b', 'c', 'd'])
